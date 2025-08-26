@@ -1,0 +1,12 @@
+{
+  "name": "@repo/types",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "latest"
+  }
+}
