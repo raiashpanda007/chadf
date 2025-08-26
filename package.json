@@ -6,7 +6,13 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+
+    "db:generate": "npm -w packages/db run db:generate",
+    "db:migrate:dev": "npm -w packages/db run db:migrate:dev",
+    "db:migrate:deploy": "npm -w packages/db run db:migrate:deploy",
+    "db:push": "npm -w packages/db run db:push",
+    "db:build": "npm -w packages/db run db:build"
   },
   "devDependencies": {
     "prettier": "^3.6.0",

@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { Prisma } from "@repo/db";
 
-export const authOptions: NextAuthOptions = {
+export const AuthConfigs: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -32,4 +32,3 @@ export const authOptions: NextAuthOptions = {
 }
 
 
-// export default NextAuth(authOptions)
