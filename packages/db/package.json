@@ -1,0 +1,23 @@
+{
+  "name": "@repo/db",
+  "type": "module",
+  "scripts": {
+    "db:migrate:dev": "npx prisma migrate dev",
+    "db:migrate:deploy": "npx prisma migrate deploy",
+    "db:generate": "npx prisma generate",
+    "build":"tsc"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.14.0"
+  }
+}
