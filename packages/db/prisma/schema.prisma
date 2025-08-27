@@ -14,9 +14,38 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
+  id        String   @id @default(uuid())
   email     String   @unique
-  name      String?
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  storage   Float    @default(0)
+  chat      Chats[]
+}
+
+model Chats {
+  id        String     @id @default(uuid())
+  name      String
+  filePath  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  messages  Messages[]
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+}
+
+model Messages {
+  id        String   @id @default(uuid())
+  edited    Boolean  @default(false)
+  message   String
+  sender    Sender
+  chatId    String
+  chat      Chats    @relation(fields: [chatId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Sender {
+  USER
+  MODEL
 }

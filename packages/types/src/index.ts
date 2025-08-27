@@ -1,3 +1,5 @@
+import {string, z as zod } from 'zod'
+
 export interface User {
     id: string
     name: string | null
@@ -32,3 +34,10 @@ export interface Account {
     updatedAt: Date
     user: User
 }
+
+
+
+export const CreateChatSchema = zod.object({
+    filePath: zod.string(),
+    name: zod.string().min(1,'Please provide name for the chat').optional(),
+})
